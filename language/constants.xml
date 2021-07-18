@@ -6,7 +6,7 @@
   <simpara>
    A constant is an identifier (name) for a simple value. As the name
    suggests, that value cannot change during the execution of the
-   script (except for <link linkend="language.constants.predefined">
+   script (except for <link linkend="language.constants.magic">
    magic constants</link>, which aren't actually constants).
    Constants are case-sensitive. By convention, constant
    identifiers are always uppercase.
@@ -76,7 +76,7 @@ define("__FOO__", "something");
    <simpara>
     As of PHP 7.1.0, class constant may declare a visibility of protected
     or private, making them only available in the hierarchical scope of the
-    class in which it is is defined.
+    class in which it is defined.
    </simpara>
   </note>
 
@@ -237,7 +237,7 @@ echo ANIMALS[1]; // outputs "cat"
   </sect1>
   
   <sect1 xml:id="language.constants.predefined">
-   <title>Magic constants</title>
+   <title>Predefined constants</title>
 
    <simpara>
     PHP provides a large number of <link
@@ -247,7 +247,10 @@ echo ANIMALS[1]; // outputs "cat"
     are available, either via dynamic loading or because they have
     been compiled in.
    </simpara>
-   
+  </sect1>
+
+  <sect1 xml:id="language.constants.magic">
+   <title>Magic constants</title>
    <para>
     There are nine magical constants that change depending on
     where they are used.  For example, the value of

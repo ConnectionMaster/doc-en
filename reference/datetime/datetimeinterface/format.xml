@@ -243,7 +243,7 @@
          <row>
           <entry><literal>v</literal></entry>
           <entry>
-           Milliseconds (added in PHP 7.0.0). Same note applies as for
+           Milliseconds. Same note applies as for
            <literal>u</literal>.
           </entry>
           <entry>Example: <literal>654</literal></entry>
@@ -353,6 +353,12 @@
       <entry>8.0.0</entry>
       <entry>
        Prior to this version, &false; was returned on failure.
+      </entry>
+     </row>
+     <row>
+      <entry>8.0.0</entry>
+      <entry>
+       The format character <literal>p</literal> has been added.
       </entry>
      </row>
     </tbody>

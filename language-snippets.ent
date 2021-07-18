@@ -99,12 +99,6 @@ to seed the random number generator with <function>srand</function> or
 <function>mt_srand</function> as this is done automatically.
 </simpara></note>'>
 
-<!ENTITY note.registerglobals '<note xmlns="http://docbook.org/ns/docbook"><title>register_globals: important
-note</title><para>As of PHP 4.2.0, the default value for the PHP directive
-<link linkend="ini.register-globals">register_globals</link> is <emphasis>
-off</emphasis>. The PHP community discourages developers from relying on this directive, and encourages the use
-of other means, such as the &link.superglobals;.</para></note>'>
-
 <!ENTITY note.is-superglobal "<note xmlns='http://docbook.org/ns/docbook'><para>This is a 'superglobal', or
 automatic global, variable. This simply means that it is available in
 all scopes throughout a script. There is no need to do
@@ -113,6 +107,10 @@ all scopes throughout a script. There is no need to do
 
 <!ENTITY note.uses-ob '<note xmlns="http://docbook.org/ns/docbook"><para>When the <parameter>return</parameter> parameter
 is used, this function uses internal output buffering so it cannot be used inside an
+<function>ob_start</function> callback function.</para></note>'>
+
+<!ENTITY note.uses-ob-php70 '<note xmlns="http://docbook.org/ns/docbook"><para>When the <parameter>return</parameter> parameter
+is used, this function uses internal output buffering prior to PHP 7.1.0, so it cannot be used inside an
 <function>ob_start</function> callback function.</para></note>'>
 
 <!ENTITY note.filesystem-time-res '<note xmlns="http://docbook.org/ns/docbook"><para>Note that time resolution may differ
@@ -234,6 +232,11 @@ xmlns="http://docbook.org/ns/docbook"><simpara>This feature has been
 <emphasis>DEPRECATED</emphasis> as of PHP 7.2.0. Relying on this feature
 is highly discouraged.</simpara></warning>'>
 
+<!ENTITY warn.deprecated.feature-7-2-0.removed-8-0-0 '<warning
+xmlns="http://docbook.org/ns/docbook"><simpara>This feature has been
+<emphasis>DEPRECATED</emphasis> as of PHP 7.2.0, and <emphasis>REMOVED</emphasis> as of PHP 8.0.0. Relying on this feature
+is highly discouraged.</simpara></warning>'>
+
 <!ENTITY warn.deprecated.function-7-2-0 '<warning
 xmlns="http://docbook.org/ns/docbook"><simpara>This function has been
 <emphasis>DEPRECATED</emphasis> as of PHP 7.2.0. Relying on this function
@@ -252,6 +255,11 @@ is highly discouraged.</simpara></warning>'>
 <!ENTITY warn.deprecated.function-7-3-0 '<warning
 xmlns="http://docbook.org/ns/docbook"><simpara>This function has been
 <emphasis>DEPRECATED</emphasis> as of PHP 7.3.0. Relying on this function
+is highly discouraged.</simpara></warning>'>
+
+<!ENTITY warn.deprecated.function-7-3-0.removed-8-0-0 '<warning
+xmlns="http://docbook.org/ns/docbook"><simpara>This function has been
+<emphasis>DEPRECATED</emphasis> as of PHP 7.3.0, and <emphasis>REMOVED</emphasis> as of PHP 8.0.0. Relying on this function
 is highly discouraged.</simpara></warning>'>
 
 <!ENTITY warn.deprecated.feature-7-4-0 '<warning
@@ -333,6 +341,9 @@ xmlns="http://docbook.org/ns/docbook"><simpara>This function was
 xmlns="http://docbook.org/ns/docbook"><simpara>This function was
 <emphasis>REMOVED</emphasis> in PHP 7.4.0.</simpara></warning>'>
 
+<!ENTITY warn.deprecated.alias-7-2-0.removed-8-0-0 '<warning xmlns="http://docbook.org/ns/docbook"><simpara>This alias was
+<emphasis>DEPRECATED</emphasis> in PHP 7.2.0, and <emphasis>REMOVED</emphasis> as of PHP 8.0.0.</simpara></warning>'>
+
 <!ENTITY warn.deprecated.alias-7-4-0.removed-8-0-0 '<warning xmlns="http://docbook.org/ns/docbook"><simpara>This alias was
 <emphasis>DEPRECATED</emphasis> in PHP 7.4.0, and <emphasis>REMOVED</emphasis> as of PHP 8.0.0.</simpara></warning>'>
 
@@ -358,12 +369,6 @@ share the same internal symbols. Note: Yaz 2.0 and above does not suffer from th
 to several possible vulnerabilities. Please read our
 <link linkend="security.cgi-bin">CGI security section</link> to learn how to
 defend yourself from such attacks.</para></warning>'>
-
-<!ENTITY note.magicquotes.gpc '<note xmlns="http://docbook.org/ns/docbook"><title>directive note: magic_quotes_gpc
-</title><para>The <link linkend="ini.magic-quotes-gpc">magic_quotes_gpc</link>
-directive defaults to <literal>on</literal>. It essentially runs
-<function>addslashes</function> on all GET, POST, and COOKIE data.
-<function>stripslashes</function> may be used to remove them.</para></note>'>
 
 <!ENTITY warn.passwordhashing '
 <warning xmlns="http://docbook.org/ns/docbook">
@@ -510,6 +515,8 @@ currently not documented; only its argument list is available.
 
 <!ENTITY example.outputs.71 '<para xmlns="http://docbook.org/ns/docbook">Output of the above example in PHP 7.1:</para>'>
 
+<!ENTITY example.outputs.72 '<para xmlns="http://docbook.org/ns/docbook">Output of the above example in PHP 7.2:</para>'>
+
 <!ENTITY example.outputs.73 '<para xmlns="http://docbook.org/ns/docbook">Output of the above example in PHP 7.3:</para>'>
 
 <!ENTITY example.outputs.8 '<para xmlns="http://docbook.org/ns/docbook">Output of the above example in PHP 8:</para>'>
@@ -586,12 +593,6 @@ use.</simpara></note>'>
   </listitem>
  </varlistentry>
 '>
-
-<!ENTITY avail.register-long-arrays 'As of PHP 5.0.0, the long PHP
-<link xmlns="http://docbook.org/ns/docbook" linkend="language.variables.predefined">predefined variable</link>
-arrays may be disabled with the
-<link xmlns="http://docbook.org/ns/docbook" linkend="ini.register-long-arrays">register_long_arrays</link>
-directive.'>
 
 <!ENTITY ini.shorthandbytes '<simpara xmlns="http://docbook.org/ns/docbook">When an <type>int</type> is used, the
 value is measured in bytes. Shorthand notation, as described
@@ -702,17 +703,13 @@ PHP is compiled with freetype support (<option role="configure">--with-freetype-
 <!ENTITY note.gd.interpolation '<note xmlns="http://docbook.org/ns/docbook"><para>This function is affected by the interpolation method set by <function>imagesetinterpolation</function>.</para></note>'>
 
 <!ENTITY gd.image.description '<varlistentry xmlns="http://docbook.org/ns/docbook"><term><parameter>
-image</parameter></term><listitem><para>An image resource, returned by one of the image creation functions,
+image</parameter></term><listitem><para>A <classname>GdImage</classname> object, returned by one of the image creation functions,
 such as <function>imagecreatetruecolor</function>.</para></listitem></varlistentry>'>
 
 <!ENTITY gd.font.description '<varlistentry xmlns="http://docbook.org/ns/docbook"><term><parameter>
 font</parameter></term><listitem><para>Can be 1, 2, 3, 4, 5 for built-in
 fonts in latin2 encoding (where higher numbers corresponding to larger fonts) or any of your
 own font identifiers registered with <function>imageloadfont</function>.
-</para></listitem></varlistentry>'>
-
-<!ENTITY gd.psfont.description '<varlistentry xmlns="http://docbook.org/ns/docbook"><term><parameter>
-font_index</parameter></term><listitem><para>A font resource, returned by <function>imagepsloadfont</function>.
 </para></listitem></varlistentry>'>
 
 <!ENTITY gd.ttf.fontfile "
@@ -761,7 +758,7 @@ $font = 'SomeFont';
     </varlistentry>
 ">
 
-<!ENTITY gd.return.identifier 'Returns an image resource identifier on success, &false; on errors.'>
+<!ENTITY gd.return.identifier 'Returns an image object on success, &false; on errors.'>
 
 <!ENTITY gd.return.trueonerror '<caution xmlns="http://docbook.org/ns/docbook"><simpara>However, if libgd fails to output the image, this function returns &true;.</simpara></caution>'>
 
@@ -846,6 +843,14 @@ $font = 'SomeFont';
 and GD2 image formats are proprietary image formats of libgd. They have to be regarded
 <emphasis>obsolete</emphasis>, and should only be used for development and testing
 purposes.</simpara></warning>'>
+
+<!ENTITY gd.changelog.image-param '<row xmlns="http://docbook.org/ns/docbook">
+ <entry>8.0.0</entry>
+ <entry>
+  <parameter>image</parameter> expects a <classname>GdImage</classname>
+  instance now; previously, a <type>resource</type> was expected.
+ </entry>
+</row>'>
 
 <!-- DBM notes -->
 
@@ -1007,6 +1012,10 @@ Passing untrusted data to this parameter is <emphasis>insecure</emphasis>, unles
 <!ENTITY intl.property.example 'Testing different properties'>
 
 <!-- LDAP notes -->
+
+<!ENTITY ldap.parameter.ldap 'An LDAP resource, returned by <function xmlns="http://docbook.org/ns/docbook">ldap_connect</function>.'>
+
+<!ENTITY ldap.parameter.result 'An LDAP result resource, returned by <function xmlns="http://docbook.org/ns/docbook">ldap_list</function> or <function xmlns="http://docbook.org/ns/docbook">ldap_search</function>.'>
 
 <!ENTITY ldap.warn.control-paged '<warning xmlns="http://docbook.org/ns/docbook">
  <simpara>
@@ -1343,7 +1352,7 @@ To use the Easy Connect naming method, PHP must be linked with Oracle
 <emphasis>[//]host_name[:port][/service_name]</emphasis>. From Oracle
 11<emphasis>g</emphasis>, the syntax is:
 <emphasis>[//]host_name[:port][/service_name][:server_type][/instance_name]</emphasis>.
-Futher options were introduced with Oracle 19c, including timeout and keep-alive
+Further options were introduced with Oracle 19c, including timeout and keep-alive
 settings.  Refer to Oracle documentation.  Service names can be found by running
 the Oracle utility <literal>lsnrctl status</literal> on the database server
 machine.
@@ -1582,7 +1591,7 @@ this extension is still available within <acronym xmlns="http://docbook.org/ns/d
 
 <!ENTITY pecl.windows.download 'A <acronym xmlns="http://docbook.org/ns/docbook">DLL</acronym> for this
 <acronym xmlns="http://docbook.org/ns/docbook">PECL</acronym> extension is currently unavailable. See also the
-<link xmlns="http://docbook.org/ns/docbook" linkend="install.windows.legacy.building">building on Windows</link>
+<link xmlns="http://docbook.org/ns/docbook" linkend="install.windows.building">building on Windows</link>
 section.'>
 
 <!ENTITY pecl.windows.download.avail 'Windows binaries (<acronym xmlns="http://docbook.org/ns/docbook">DLL</acronym> files) 
@@ -1650,15 +1659,15 @@ returned by <function>fbsql_query</function> or
 
 <!-- MySQLi Notes -->
 <!ENTITY mysqli.result.description '<varlistentry xmlns="http://docbook.org/ns/docbook"><term><parameter>
-result</parameter></term><listitem><para>Procedural style only: A result set
-identifier returned by <function>mysqli_query</function>, <function>mysqli_store_result</function>
-or <function>mysqli_use_result</function>.</para></listitem></varlistentry>'>
+result</parameter></term><listitem><para>Procedural style only: A <classname>mysqli_result</classname>
+object returned by <function>mysqli_query</function>, <function>mysqli_store_result</function>,
+<function>mysqli_use_result</function> or <function>mysqli_stmt_get_result</function>.</para></listitem></varlistentry>'>
 <!ENTITY mysqli.link.description '<varlistentry xmlns="http://docbook.org/ns/docbook"><term><parameter>
-link</parameter></term><listitem><para>Procedural style only: A link identifier
+mysql</parameter></term><listitem><para>Procedural style only: A <classname>mysqli</classname> object
 returned by <function>mysqli_connect</function> or <function>mysqli_init</function>
 </para></listitem></varlistentry>'>
 <!ENTITY mysqli.stmt.description '<varlistentry xmlns="http://docbook.org/ns/docbook"><term><parameter>
-stmt</parameter></term><listitem><para>Procedural style only: A statement identifier
+statement</parameter></term><listitem><para>Procedural style only: A <classname>mysqli_stmt</classname> object
 returned by <function>mysqli_stmt_init</function>.</para></listitem></varlistentry>'>
 <!ENTITY mysqli.available.mysqlnd 'Available only with <link xmlns="http://docbook.org/ns/docbook"
 linkend="book.mysqlnd">mysqlnd</link>.'>
@@ -1667,6 +1676,13 @@ linkend="book.mysqlnd">mysqlnd</link>.'>
 hand-shake/authentication, which mysqlnd will use.</para><para>Libmysqlclient uses the default charset set in the
 <filename>my.cnf</filename> or by an explicit call to <function>mysqli_options</function> prior to
 calling <function>mysqli_real_connect</function>, but after <function>mysqli_init</function>.</para></note>'>
+<!ENTITY mysqli.sqlinjection.warning '<warning xmlns="http://docbook.org/ns/docbook">
+<title>Security warning: SQL injection</title><para>If the query contains any variable
+input then <link linkend="mysqli.quickstart.prepared-statements">parameterized
+prepared statements</link> should be used instead. Alternatively, the
+data must be properly formatted and all strings must be escaped using 
+the <function>mysqli_real_escape_string</function>
+function.</para></warning>'>
 
 <!-- Notes for SAPI/Apache -->
 <!ENTITY apache.req.module '<simpara xmlns="http://docbook.org/ns/docbook">This function is supported when PHP
@@ -1766,36 +1782,31 @@ field_offset</parameter></term><listitem><para>The numerical field offset. The
 
 <!ENTITY mysql.alternative.note '<para xmlns="http://docbook.org/ns/docbook">This extension was deprecated in PHP 5.5.0, and it was removed in PHP 7.0.0.
 Instead, the <link linkend="book.mysqli">MySQLi</link> or <link linkend="ref.pdo-mysql">PDO_MySQL</link> extension should be used.
-See also <link linkend="mysqlinfo.api.choosing">MySQL: choosing an API</link> guide and
-<link linkend="faq.databases.mysql.deprecated">related FAQ</link> for more information.
+See also <link linkend="mysqlinfo.api.choosing">MySQL: choosing an API</link> guide.
 Alternatives to this function include:</para>'>
 
 <!ENTITY mysql.alternative.note.4-3-0 '<para xmlns="http://docbook.org/ns/docbook">This function was deprecated in PHP 4.3.0, and it
 and the entire <link linkend="book.mysql">original MySQL extension</link> was removed in PHP 7.0.0.
 Instead, use either the actively developed <link linkend="book.mysqli">MySQLi</link> or <link linkend="ref.pdo-mysql">PDO_MySQL</link> extensions.
-See also the <link linkend="mysqlinfo.api.choosing">MySQL: choosing an API</link> guide and its
-<link linkend="faq.databases.mysql.deprecated">related FAQ entry</link> for additional information. 
+See also the <link linkend="mysqlinfo.api.choosing">MySQL: choosing an API</link> guide.
 Alternatives to this function include:</para>'>
 
 <!ENTITY mysql.alternative.note.5-3-0 '<para xmlns="http://docbook.org/ns/docbook">This function was deprecated in PHP 5.3.0, and it
 and the entire <link linkend="book.mysql">original MySQL extension</link> was removed in PHP 7.0.0.
 Instead, use either the actively developed <link linkend="book.mysqli">MySQLi</link> or <link linkend="ref.pdo-mysql">PDO_MySQL</link> extensions.
-See also the <link linkend="mysqlinfo.api.choosing">MySQL: choosing an API</link> guide and its
-<link linkend="faq.databases.mysql.deprecated">related FAQ entry</link> for additional information. 
+See also the <link linkend="mysqlinfo.api.choosing">MySQL: choosing an API</link> guide.
 Alternatives to this function include:</para>'>
 
 <!ENTITY mysql.alternative.note.5-4-0 '<para xmlns="http://docbook.org/ns/docbook">This function was deprecated in PHP 5.4.0, and it
 and the entire <link linkend="book.mysql">original MySQL extension</link> was removed in PHP 7.0.0.
 Instead, use either the actively developed <link linkend="book.mysqli">MySQLi</link> or <link linkend="ref.pdo-mysql">PDO_MySQL</link> extensions.
-See also the <link linkend="mysqlinfo.api.choosing">MySQL: choosing an API</link> guide and its
-<link linkend="faq.databases.mysql.deprecated">related FAQ entry</link> for additional information. 
+See also the <link linkend="mysqlinfo.api.choosing">MySQL: choosing an API</link> guide.
 Alternatives to this function include:</para>'>
 
 <!ENTITY mysql.alternative.note.5-5-0 '<para xmlns="http://docbook.org/ns/docbook">This function was deprecated in PHP 5.5.0, and it
 and the entire <link linkend="book.mysql">original MySQL extension</link> was removed in PHP 7.0.0.
 Instead, use either the actively developed <link linkend="book.mysqli">MySQLi</link> or <link linkend="ref.pdo-mysql">PDO_MySQL</link> extensions.
-See also the <link linkend="mysqlinfo.api.choosing">MySQL: choosing an API</link> guide and its
-<link linkend="faq.databases.mysql.deprecated">related FAQ entry</link> for additional information. 
+See also the <link linkend="mysqlinfo.api.choosing">MySQL: choosing an API</link> guide.
 Alternatives to this function include:</para>'>
 
 <!ENTITY mysql.close.connections.result.sets '<para xmlns="http://docbook.org/ns/docbook">
@@ -2011,6 +2022,8 @@ The <classname>XMLWriter</classname> instance that is being modified. This objec
 <!ENTITY imagick.method.available.0x649 'This method is available if Imagick has been compiled against ImageMagick version 6.4.9 or newer.'>
 <!ENTITY imagick.method.available.0x653 'This method is available if Imagick has been compiled against ImageMagick version 6.5.3 or newer.'>
 <!ENTITY imagick.method.available.0x657 'This method is available if Imagick has been compiled against ImageMagick version 6.5.7 or newer.'>
+
+<!ENTITY imagick.method.not.available.0x700 'This method is not available if Imagick has been compiled against ImageMagick version 7.0.0 or newer.'>
 
 <!ENTITY imagick.constant.available 'This constant is available if Imagick has been compiled against ImageMagick version'>
 
@@ -2439,10 +2452,10 @@ used.</para>'>
           <entry><type>array</type></entry>
           <entry>
            <para>
-            A document containing the configuration for one or more KMS providers, which are used to encrypt data keys. Currently <literal>aws</literal> or <literal>local</literal> are supported and at least one must be specified.
+            A document containing the configuration for one or more KMS providers, which are used to encrypt data keys. Currently <literal>"aws"</literal>, <literal>"azure"</literal>, <literal>"gcp"</literal>, and <literal>"local"</literal> are supported and at least one must be specified.
            </para>
            <para>
-            The format for <literal>aws</literal> is as follows:
+            The format for <literal>"aws"</literal> is as follows:
            </para>
            <programlisting role="javascript">
 <![CDATA[
@@ -2453,13 +2466,40 @@ aws: {
 ]]>
            </programlisting>
            <para>
-            The format for <literal>local</literal> is as follows:
+            The format for <literal>"azure"</literal> is as follows:
+           </para>
+           <programlisting role="javascript">
+<![CDATA[
+azure: {
+    tenantId: <string>,
+    clientId: <string>,
+    clientSecret: <string>,
+    identityPlatformEndpoint: <optional string> // Defaults to "login.microsoftonline.com"
+
+}
+]]>
+           </programlisting>
+           <para>
+            The format for <literal>"gcp"</literal> is as follows:
+           </para>
+           <programlisting role="javascript">
+<![CDATA[
+aws: {
+    email: <string>,
+    privateKey: <base64 string>|<MongoDB\BSON\Binary>,
+    endpoint: <optional string> // Defaults to "oauth2.googleapis.com"
+
+}
+]]>
+           </programlisting>
+           <para>
+            The format for <literal>"local"</literal> is as follows:
            </para>
            <programlisting role="javascript">
 <![CDATA[
 local: {
-    // The master key used to encrypt/decrypt data keys
-    key: <96-byte MongoDB\BSON\Binary with subtype 0>
+    // 96-byte master key used to encrypt/decrypt data keys
+    key: <base64 string>|<MongoDB\BSON\Binary>
 }
 ]]>
            </programlisting>
@@ -2854,7 +2894,8 @@ local: {
      </listitem>
      <listitem>
       <simpara>
-       For <literal>g</literal> and <literal>G</literal>
+       For <literal>g</literal>, <literal>G</literal>,
+       <literal>h</literal> and <literal>H</literal>
        specifiers: this is the maximum number of significant
        digits to be printed.
       </simpara>
@@ -2924,9 +2965,6 @@ local: {
        <entry><literal>e</literal></entry>
        <entry>
         The argument is treated as scientific notation (e.g. 1.2e+2).
-        The precision specifier stands for the number of digits after the
-        decimal point since PHP 5.2.1. In earlier versions, it was taken as
-        number of significant digits (one less).
        </entry>
       </row>
       <row>
@@ -2948,7 +2986,6 @@ local: {
        <entry>
         The argument is treated as a float and presented
         as a floating-point number (non-locale aware).
-        Available as of PHP 5.0.3.
        </entry>
       </row>
       <row>
@@ -3053,11 +3090,11 @@ local: {
      </thead>
      <tbody>
       <row>
-       <entry><literal>string</literal></entry>
+       <entry><type>string</type></entry>
        <entry><literal>s</literal></entry>
       </row>
       <row>
-       <entry><literal>integer</literal></entry>
+       <entry><type>int</type></entry>
        <entry>
         <literal>d</literal>,
         <literal>u</literal>,
@@ -3069,14 +3106,16 @@ local: {
        </entry>
       </row>
       <row>
-       <entry><literal>double</literal></entry>
+       <entry><type>float</type></entry>
        <entry>
-        <literal>g</literal>,
-        <literal>G</literal>,
         <literal>e</literal>,
         <literal>E</literal>,
         <literal>f</literal>,
-        <literal>F</literal>
+        <literal>F</literal>,
+        <literal>g</literal>,
+        <literal>G</literal>,
+        <literal>h</literal>,
+        <literal>H</literal>
        </entry>
       </row>
      </tbody>

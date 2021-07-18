@@ -15,7 +15,7 @@
      <entry>&Changelog;</entry>
     </row>
    </thead>
-   <tbody>
+   <tbody xml:id="session.configuration.list">
     <row>
      <entry><link linkend="ini.session.save-path">session.save_path</link></entry>
      <entry>""</entry>
@@ -92,19 +92,19 @@
      <entry><link linkend="ini.session.cookie-httponly">session.cookie_httponly</link></entry>
      <entry>""</entry>
      <entry>PHP_INI_ALL</entry>
-     <entry>Available since PHP 5.2.0.</entry>
+     <entry></entry>
     </row>
     <row>
      <entry><link linkend="ini.session.cookie-samesite">session.cookie_samesite</link></entry>
      <entry>""</entry>
      <entry>PHP_INI_ALL</entry>
-     <entry>Available since PHP 7.3.0.</entry>
+     <entry>Available as of PHP 7.3.0.</entry>
     </row>
     <row>
      <entry><link linkend="ini.session.use-strict-mode">session.use_strict_mode</link></entry>
      <entry>"0"</entry>
      <entry>PHP_INI_ALL</entry>
-     <entry>Available since PHP 5.5.2.</entry>
+     <entry></entry>
     </row>
     <row>
      <entry><link linkend="ini.session.use-cookies">session.use_cookies</link></entry>
@@ -146,97 +146,91 @@
      <entry><link linkend="ini.session.trans-sid-tags">session.trans_sid_tags</link></entry>
      <entry>"a=href,area=href,frame=src,form="</entry>
      <entry>PHP_INI_ALL</entry>
-     <entry>Available since PHP 7.1.0.</entry>
+     <entry>Available as of PHP 7.1.0.</entry>
     </row>
     <row>
      <entry><link linkend="ini.session.trans-sid-hosts">session.trans_sid_hosts</link></entry>
      <entry><literal>$_SERVER['HTTP_HOST']</literal></entry>
      <entry>PHP_INI_ALL</entry>
-     <entry>Available since PHP 7.1.0.</entry>
+     <entry>Available as of PHP 7.1.0.</entry>
     </row>
     <row>
      <entry><link linkend="ini.session.sid-length">session.sid_length</link></entry>
      <entry>"32"</entry>
      <entry>PHP_INI_ALL</entry>
-     <entry>Available since PHP 7.1.0.</entry>
+     <entry>Available as of PHP 7.1.0.</entry>
     </row>
     <row>
      <entry><link linkend="ini.session.sid-bits-per-character">session.sid_bits_per_character</link></entry>
      <entry>"4"</entry>
      <entry>PHP_INI_ALL</entry>
-     <entry>Available since PHP 7.1.0.</entry>
+     <entry>Available as of PHP 7.1.0.</entry>
     </row>
     <row>
      <entry><link linkend="ini.session.upload-progress.enabled">session.upload_progress.enabled</link></entry>
      <entry>"1"</entry>
      <entry>PHP_INI_PERDIR</entry>
-     <entry>Available since PHP 5.4.0.</entry>
+     <entry></entry>
     </row>
     <row>
      <entry><link linkend="ini.session.upload-progress.cleanup">session.upload_progress.cleanup</link></entry>
      <entry>"1"</entry>
      <entry>PHP_INI_PERDIR</entry>
-     <entry>Available since PHP 5.4.0.</entry>
+     <entry></entry>
     </row>
     <row>
      <entry><link linkend="ini.session.upload-progress.prefix">session.upload_progress.prefix</link></entry>
      <entry>"upload_progress_"</entry>
      <entry>PHP_INI_PERDIR</entry>
-     <entry>Available since PHP 5.4.0.</entry>
+     <entry></entry>
     </row>
     <row>
      <entry><link linkend="ini.session.upload-progress.name">session.upload_progress.name</link></entry>
      <entry>"PHP_SESSION_UPLOAD_PROGRESS"</entry>
      <entry>PHP_INI_PERDIR</entry>
-     <entry>Available since PHP 5.4.0.</entry>
+     <entry></entry>
     </row>
     <row>
      <entry><link linkend="ini.session.upload-progress.freq">session.upload_progress.freq</link></entry>
      <entry>"1%"</entry>
      <entry>PHP_INI_PERDIR</entry>
-     <entry>Available since PHP 5.4.0.</entry>
+     <entry></entry>
     </row>
     <row>
      <entry><link linkend="ini.session.upload-progress.min-freq">session.upload_progress.min_freq</link></entry>
      <entry>"1"</entry>
      <entry>PHP_INI_PERDIR</entry>
-     <entry>Available since PHP 5.4.0.</entry>
+     <entry></entry>
     </row>
     <row>
      <entry><link linkend="ini.session.lazy-write">session.lazy_write</link></entry>
      <entry>"1"</entry>
      <entry>PHP_INI_ALL</entry>
-     <entry>Available since PHP 7.0.0.</entry>
-    </row>
-    <row>
-     <entry><link linkend="ini.url-rewriter.tags">url_rewriter.tags</link></entry>
-     <entry>"a=href,area=href,frame=src,form="</entry>
-     <entry>PHP_INI_ALL</entry>
-     <entry>Since PHP 7.1.0, this INI is no longer used by session.</entry>
+     <entry></entry>
     </row>
     <row>
      <entry><link linkend="ini.session.hash-function">session.hash_function</link></entry>
      <entry>"0"</entry>
      <entry>PHP_INI_ALL</entry>
-     <entry>Removed in PHP 7.1.0.</entry>
+     <entry>Removed as of PHP 7.1.0.</entry>
     </row>
     <row>
      <entry><link linkend="ini.session.hash-bits-per-character">session.hash_bits_per_character</link></entry>
      <entry>"4"</entry>
      <entry>PHP_INI_ALL</entry>
-     <entry>Removed in PHP 7.1.0.</entry>
+     <entry>Removed as of PHP 7.1.0.</entry>
     </row>
     <row>
      <entry><link linkend="ini.session.entropy-file">session.entropy_file</link></entry>
      <entry>""</entry>
      <entry>PHP_INI_ALL</entry>
-     <entry>Removed in PHP 7.1.0.</entry>
+     <entry>Removed as of PHP 7.1.0.</entry>
     </row>
     <row>
      <entry><link linkend="ini.session.entropy-length">session.entropy_length</link></entry>
      <entry>"0"</entry>
      <entry>PHP_INI_ALL</entry>
-     <entry>Removed in PHP 7.1.0</entry>
+     <entry>Removed as of PHP 7.1.0</entry>
     </row>
    </tbody>
   </tgroup>
@@ -373,8 +367,7 @@
      <literal>php_binary</literal>) and WDDX are supported (name
      <literal>wddx</literal>). WDDX is only available, if PHP is
      compiled with <link linkend="ref.wddx">WDDX
-     support</link>. <literal>php_serialize</literal> is available
-     from PHP 5.5.4. <literal>php_serialize</literal> uses plain
+     support</link>. <literal>php_serialize</literal> uses plain
      serialize/unserialize function internally and does not have
      limitations that <literal>php</literal>
      and <literal>php_binary</literal> have. Older serialize handlers
@@ -478,7 +471,7 @@
      which are available on many Unix systems.
     </simpara>
     <simpara>
-     This feature is supported on Windows since PHP 5.3.3. Setting 
+     This feature is supported on Windows. Setting 
      <literal>session.entropy_length</literal> to a non zero value
      will make PHP use the Windows Random API as entropy source.
     </simpara>
@@ -487,9 +480,9 @@
       Removed in PHP 7.1.0.
      </simpara>
      <simpara>
-      As of PHP 5.4.0 <literal>session.entropy_file</literal> defaults
+      <literal>session.entropy_file</literal> defaults
       to <literal>/dev/urandom</literal> or <literal>/dev/arandom</literal>
-      if it is available. In PHP 5.3.0 this directive is left empty by default.
+      if it is available.
      </simpara>
     </note>
    </listitem>
@@ -573,7 +566,7 @@
      cookies to store the session id on the client side.
      Enabling this setting prevents attacks involved passing session
      ids in URLs.
-     Defaults to <literal>1</literal> (enabled) since PHP 5.3.0.
+     Defaults to <literal>1</literal> (enabled).
     </simpara>
    </listitem>
   </varlistentry>
@@ -871,7 +864,7 @@
      '1' means SHA-1 (160 bits).
     </simpara>
     <para>
-     Since PHP 5.3.0 it is also possible to specify any of the algorithms
+     It is also possible to specify any of the algorithms
      provided by the <link linkend="ref.hash">hash extension</link> (if it is
      available), like <literal>sha512</literal> or
      <literal>whirlpool</literal>. A complete list of supported algorithms can
@@ -879,7 +872,7 @@
     </para>
     <note>
      <simpara>
-      This setting was introduced in PHP 5. Removed in PHP 7.1.0.
+      Removed in PHP 7.1.0.
      </simpara>
     </note>
    </listitem>
@@ -1018,14 +1011,6 @@
   </varlistentry>
 
  </variablelist>
- </para>
-
- <para>
-  The
-  <link
-  linkend="ini.register-globals"><literal>register_globals</literal></link>
-  configuration settings influence how the session variables get
-  stored and restored.
  </para>
 
  <para>

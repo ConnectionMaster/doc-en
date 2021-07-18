@@ -114,7 +114,7 @@ __HALT_COMPILER();
       <entry>Whole-archive signature validation</entry>
       <entry>Yes</entry>
       <entry>Yes</entry>
-      <entry>Yes (PHP 5.3.1+)</entry>
+      <entry>Yes</entry>
      </row>
      <row>
       <entry>Web-specific application support</entry>
@@ -200,6 +200,13 @@ __HALT_COMPILER();
    full path within the phar archive.  There is no limit on the number of files
    within a tar-based phar archive.  These archives can fully compressed in
    gzip or bzip2 format and still be executed by the Phar extension.
+  </para>
+  <para>
+   There is limited support for reading tarballs in pax interchange format,
+   but all recognized pax headers (currently, typeflag <literal>x</literal> and
+   <literal>g</literal>) are silently ignored.
+   There is also limited support for GNU Tar Archives;
+   currently, <literal>././@LongLink</literal> headers are resolved.
   </para>
   <para>
    To compress an entire archive, use <function>Phar::compress</function>.
